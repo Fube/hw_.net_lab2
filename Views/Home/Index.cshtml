@@ -1,0 +1,25 @@
+﻿@model hw_.net_lab2.Models.Quote;
+@{
+    ViewData["Title"] = "Price Quotation";
+}
+
+<div class="price-quotation">
+    <h1 class="display-4">Price Quotation</h1>
+    <div asp-validation-summary="All" class="text-danger"></div>
+    <form method="post">
+        <label for="">
+            Subtotal:
+            <input type="text" name="subtotal" value="@Model.Subtotal">
+        </label>
+        <label for="" >
+            Discount percent:
+            <input type="text" name="discount" value="@Model.Discount">
+        </label>
+        <label for="" >Discount amount:<span>@Model.DiscountAmount.ToString("C2")</span></label>
+        <label for="" >Total: <span>@Model.Total.ToString("C2")</span></label>
+        <div>
+            <input type="submit" value="Calculate" />
+            <a href="/">Clear</a>  
+        </div>
+    </form>
+</div>
