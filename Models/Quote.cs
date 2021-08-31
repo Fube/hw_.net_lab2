@@ -7,14 +7,14 @@ namespace hw_.net_lab2.Models
         [Required(ErrorMessage = "Subtotal is required")]
         // double.Epsilon is the smallest positive number
         [Range(double.Epsilon, double.MaxValue, ErrorMessage = "Subtotal must be greater than 0")]
-        public decimal Subtotal { get; set; }
+        public decimal? Subtotal { get; set; }
 
         [Required(ErrorMessage = "Discount percent is required")]
         [Range(0, 100, ErrorMessage = "Discount percent must be between {1} and {2}")]
-        public decimal Discount { get; set; }
+        public decimal? Discount { get; set; }
         
-        public decimal DiscountAmount => Subtotal * Discount/100;
+        public decimal DiscountAmount => Subtotal == null || Discount == null ? 0 : Subtotal.Value * Discount.Value/100;
 
-        public decimal Total => Subtotal - DiscountAmount;
+        public decimal Total => (Subtotal ?? 0) - DiscountAmount;
     }
 }

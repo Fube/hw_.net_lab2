@@ -7,11 +7,11 @@
     <h1 class="display-4">Price Quotation</h1>
     <div asp-validation-summary="All" class="text-danger"></div>
     <form method="post">
-        <label for="">
+        <label asp-for="Subtotal">
             Subtotal:
             <input type="text" name="subtotal" value="@Model.Subtotal">
         </label>
-        <label for="" >
+        <label asp-for="Discount" >
             Discount percent:
             <input type="text" name="discount" value="@Model.Discount">
         </label>
